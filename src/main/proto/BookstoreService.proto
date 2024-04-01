@@ -1,0 +1,49 @@
+syntax = "proto3";
+package com.example.grps;
+
+message Book {
+  string title = 1;
+  string author = 2;
+  string isbn = 3;
+  int32 quantity = 4;
+}
+
+message GetBookRequest {
+  string title = 1;
+}
+
+message GetBookResponse{
+  Book book = 1;
+}
+
+message DeleteBookRequest {
+  string title = 1;
+  string authorName = 2;
+}
+
+message DeleteBookResponse {
+  bool success = 1;
+}
+
+message UpdateBookRequest {
+  Book bookToUpdate = 1;
+}
+
+message UpdateBookResponse {
+  Book updatedBook = 1;
+}
+
+message GetAllBooksByAuthorRequest {
+  string authorsName = 1;
+}
+
+message GetAllBooksByAuthorResponse {
+  repeated Book book = 1;
+}
+
+service BookService {
+  rpc GetBook (GetBookRequest) returns (GetBookResponse);
+  rpc DeleteBook(DeleteBookRequest) returns (DeleteBookResponse);
+  rpc UpdateBook(UpdateBookRequest) returns (UpdateBookResponse);
+  rpc GetAllBooksByAuthor(GetAllBooksByAuthorRequest) returns (GetAllBooksByAuthorResponse);
+}
