@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS books(
+    id UUID NOT NULL PRIMARY KEY,
+    book_name VARCHAR(64) NOT NULL,
+    author VARCHAR(64) NOT NULL,
+    isbn VARCHAR(64) NOT NULL,
+    quantity INT NOT NULL
+);
